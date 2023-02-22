@@ -7,6 +7,13 @@
   <link type="image/x-icon" href="https://sysweb.unach.mx/resources/imagenes/favicon.ico" rel="shortcut icon"/>
   <link rel="stylesheet" href="http://sysweb.unach.mx/Ingresos/bootstrap/css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="http://sysweb.unach.mx/Ingresos/bootstrap/css/mdb.css"/>
+  <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v10/vendor/bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v10/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v10/css/util.css">
+<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v10/css/main.css">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="http://sysweb.unach.mx/Ingresos/bootstrap/js/bootstrap.min.js"></script>
@@ -18,145 +25,25 @@
     <script language="javascript" type="text/javascript">
 
         function TipoAcceso(Tipo) {
-            $("#divPassword").hide();
-            $("#txtPassword").hide();
-            $("#listCve").hide();
-            $("#listUser").hide();
-            $("#txtCve").hide();
-            $("#listReferencia").hide();
+            $("#divPassword").show();
+            $("#txtPassword").show();
+            $("#listReferencia").show();
+            $("#listCve").show();
             $("#txtCve").show();
+            $("#txtCve").focus();
             $("#divMsjGral").show();
-            $("#divMsjUsuDep").hide();
-
-            if (Tipo === "REFERENCIA") {
-                $("#listReferencia").show();
-                $("#listCve").hide();
-                $("#txtCve").attr("placeholder", "Referencia de 26 dígitos");
-                $('.txtCve').css('cursor', 'pointer');
-                $("#txtCve").focus();
-                $("#DDLTipoUsuario").val("4");
-            }
-            else if (Tipo === "FACTURA") {
-                $("#listReferencia").show();
-                $("#listCve").hide();
-                $("#txtCve").attr("placeholder", "Referencia de 26 dígitos");
-                $('.txtCve').css('cursor', 'pointer');
-                $("#txtCve").focus();
-                $('#DDLTipoUsuario option')[5].selected = true;
-
-            }
-
+            $("#divMsjUsuDep").show();
         };
-
-        function LimpiarCampos() {
-            $("#divPassword").hide();
-            $("#txtPassword").hide();
-            $("#listCve").hide();
-            $("#listUser").hide();
-            $("#txtCve").hide();
-            $("#listReferencia").hide();
-            $("#divMsjGral").show();
-            $("#divMsjUsuDep").hide();
-        }
-
-        $(document).ready(function () {
-
-
-            $("#DDLTipoUsuario").change(function () {
-                $("#divPassword").hide();
-                $("#txtPassword").hide();
-                $("#listCve").hide();
-                $("#listUser").hide();
-                $("#txtCve").hide();
-                $("#listReferencia").hide();
-                $("#txtCve").show();
-                $("#divMsjGral").show();
-                $("#divMsjUsuDep").hide();
-
-                if ($("#DDLTipoUsuario").val() == "1" || $("#DDLTipoUsuario").val() == "2" || $("#DDLTipoUsuario").val() == "4" || $("#DDLTipoUsuario").val() == "6" || $("#DDLTipoUsuario").val() == "7") {
-                    $("#divPassword").hide();
-                    $("#txtPassword").hide();
-                    $("#txtCve").focus();
-
-                    if ($("#DDLTipoUsuario").val() == "1") {
-                        $("#txtCve").attr("placeholder", "Número de Ficha ó Matricula");
-                        $("#listUser").show();
-
-
-                    }
-                    else if ($("#DDLTipoUsuario").val() == "2") {
-                        $("#listReferencia").show();
-                        $("#listCve").hide();
-                        $("#txtCve").attr("placeholder", "Referencia de 26 dígitos");
-                        $('.txtCve').css('cursor', 'pointer');
-                    }
-                    else if ($("#DDLTipoUsuario").val() == "4") {
-                        $("#listReferencia").hide();
-                        $("#listCve").hide();
-                        $("#txtCve").hide();
-                    }
-                    else if ($("#DDLTipoUsuario").val() == "7") {
-                        $("#listReferencia").show();
-                        $("#listCve").hide();
-                        $("#txtCve").attr("placeholder", "Referencia de 26 dígitos");
-                        $('.txtCve').css('cursor', 'pointer');
-                    }
-                    else {
-                        $("#listReferencia").hide();
-                        $("#listUser").show();
-
-                        $("#txtCve").attr("placeholder", "Clave SYSWEB");
-                    }
-                }
-                else if ($("#DDLTipoUsuario").val() == "5") {
-                    $("#divPassword").hide();
-                    $("#txtPassword").hide();
-                    $("#listCve").hide();
-                    $("#txtCve").hide();
-                    $("#listReferencia").hide();
-                }
-                else {
-                    $("#divPassword").show();
-                    $("#txtPassword").show();
-                    $("#listReferencia").hide();
-                    $("#listCve").show();
-                    $("#txtCve").show();
-                    $("#txtCve").attr("placeholder", "Correo UNACH");
-                    $("#txtCve").focus();
-                    $("#divMsjGral").hide();
-                    $("#divMsjUsuDep").show();
-
-
-                }
-            });
-            $("#bttnModalActualizar").click(function () {
-                window.location = "https://sysweb.unach.mx/actualiza_correo/frmactualiza_datos.aspx?sistema=14";
-            });
-        });
-
-
     </script>
 
 </head>
 <body>
     <form name="form1" method="post" action="./" id="form1">
-<div>
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTgzMzQyNDcyNWRkwKwHeTrfnj8RaV0WfRJUFMlMmdvrhFajSV57hi3BafM=" />
-</div>
 
 <script type="text/javascript">
 var theForm = document.forms['form1'];
 if (!theForm) {
     theForm = document.form1;
-}
-function __doPostBack(eventTarget, eventArgument) {
-    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
-        theForm.__EVENTTARGET.value = eventTarget;
-        theForm.__EVENTARGUMENT.value = eventArgument;
-        theForm.submit();
-    }
 }
 </script>
 
@@ -166,71 +53,51 @@ function __doPostBack(eventTarget, eventArgument) {
 
 <script src="http://sysweb.unach.mx/Ingresos/ScriptResource.axd?d=pbWvyd7K4gkXd7YrGtgNnAzcGysOgKCLI3ng8U4OGWOTd8ebNpzGxuVZ16t_LwnSOrdODgD6MtnfcDbs9ysbY00BGfjg4XCLciijq6aqVu7Hx-OLBJcDYhoFIEemC84leSmmsq44R-ihJHjc-2Rco3BZHt1__o97uSRYr-vMSIo1&amp;t=ffffffffe6d5a9ac" type="text/javascript"></script>
 <script src="http://sysweb.unach.mx/Ingresos/ScriptResource.axd?d=dq8bu2bWgSZSA1XqzJ2GujatJfzb101CigakLyzdGLkFfBy_c8lVKJMBAj9EMUQOYzzJIWfgK2jhoPjGrMwHGiIQQ-nL8g4WOvdAheRie2b8bl3qAW1vlHgIi6LegBQh8PpTKYrniXkqZ11TWOokhqNYWdUjfPdKwqKwY5-jkyuaixkMoneIooRenJ_9a7KX0&amp;t=ffffffffe6d5a9ac" type="text/javascript"></script>
-<div>
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="215E3FB8" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAArZNl9jv3D8kYuvgvKIGxWIJaYK8jou/5t0ode+DRoJ/4HimsnnVRs57WriFQr/0oLGRIOuo6GZheoAZzY8YPWEudvGKdiIUglNR5lXY+U7y1khH4+bFEjgodQ5HY1+tteiJ73YRtSvDd0rQEEbhWIlAlRR8tDufdah6qQKbZotOXY2+Mc6SrnAqio3oCKbxYZt8fuKsCMPoOSzzbQvlqRNzuP2Bl/F1g1MtkhKecobPxPupcgfnT2J0fjlfVQoaO8=" />
-</div>
-        <script type="text/javascript">
-//<![CDATA[
-Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdatePanel2','','tUpdatePanel1',''], [], [], 90, '');
-//]]>
-</script>
-
-
 
         <div class="page-header" style="background-color: #18386b">
             <div class="row">
-                <div class="col-md-4">
-                    <img id="imgSYSWEB" src="https://sysweb.unach.mx/resources/imagenes/sysweb2018230.png" class="img-fluid d-none d-sm-none d-md-block" alt="Responsive image" style="cursor: pointer" />
+                <div class="col-md-4 text-center">
+                    <img id="imgSYSWEB" src="https://sysweb.unach.mx/resources/imagenes/sysweb2018230.png" class="img-fluid d-none d-sm-none d-md-block"/>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="text-light font-weight-bold">
                         <h4 class="media-heading">Login Taller 4</h4>
-                        <h5>SysWeb Unach</h5>
+                        <h5>SysWeb UNACH</h5>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <img src="https://sysweb.unach.mx/resources/imagenes/unach.jpg" class="img-fluid d-none d-sm-none d-md-block" alt="Responsive image" style="cursor: pointer" />
+                <div class="col-md-4 text-md-left">
+                    <img src="https://sysweb.unach.mx/resources/imagenes/unach.jpg" class="img-fluid d-none d-sm-none d-md-block"/>
                 </div>
             </div>
         </div>
+
         <div class="bg-light">
             <article class="card-body mx-auto" style="max-width: 450px;">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Iniciar Sesión</h5>
+                        <center>
+                            <h5>LOGIN</h5>
+                        </center>
+                        <br><br>
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-cog"></i></span>
                             </div>
-                            <select name="DDLTipoUsuario" id="DDLTipoUsuario" class="form-control">
-	<option value="5">Seleccionar</option>
-	<option value="1">Alumno &#243; Aspirante</option>
-	<option value="3">Usuario Dependencia</option>
-	<option value="7">Referencia Bancaria</option>
-	<option value="6">Cliente UNACH</option>
-	<option value="4">Facturas</option>
-
+                            <select name="DDLTipoUsuario" id="DDLTipoUsuario" class="form-control input100">
+	<option value="5">Usuario Institucional</option>
 </select>
                         </div>
                         <div class="form-group input-group">
                             <div id="listUser" class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                             </div>
-                            <div id="listCve" class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-at"></i></span>
-                            </div>
-                            <div id="listReferencia" class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-barcode"></i></span>
-                            </div>
-                            <input name="txtCve" type="text" id="txtCve" tabindex="1" class="form-control" />
+                            <input name="txtCve" type="text" id="txtCve" tabindex="1" class="form-control input100" placeholder="Correo Institucional" />
                         </div>
                         <div class="form-group input-group">
                             <div id="divPassword" class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                             </div>
-                            <input name="txtPassword" type="password" id="txtPassword" tabindex="2" class="form-control" placeholder="Contrase&ntilde;a" />
+                            <input name="txtPassword" type="password" id="txtPassword" tabindex="2" class="form-control input100" placeholder="Contrase&ntilde;a" />
 
                         </div>
                         <div class="form-group text-center">
@@ -242,24 +109,11 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
                             <br />
                             <div id="UpdatePanel1">
 	
-                                    <input type="submit" name="btnIngresar" value="Iniciar Sesión" id="btnIngresar" tabindex="5" class="btn" style="background-color: #d2af47; color: #fff" />
+                                    <input type="submit" name="btnIngresar" value="INICIAR SESI&Oacute;N" id="btnIngresar" tabindex="15" class="btn" style="background-color: #d2af47; color: #fff" />
                                 
 </div>
-                            <div id="updPrMultiview" style="display:none;">
-	
-                                    <img id="imgMultiview" title="Espere un momento, por favor.." src="https://sysweb.unach.mx/resources/imagenes/ajax_loader_gray_512.gif" alt="Espere un momento, por favor.." style="height:50px;border-width:0px;" />
-                                
-</div>
+                          
 
-
-                        </div>
-                       
-                        <p class="note note-warning">
-                            El acceso a esta página es para obtener el comprobante oficial de alguno de los servicios que proporciona la universidad.             
-                        </p>
-                        <div id="divMsjUsuDep" class="alert alert-warning" role="alert">
-                            <strong>Para acceder, debes tener la cuenta y la contrase&ntilde; oficial de la unach,</strong> si no ha actualizado su informac&oacute;n siga el siguiente enlace.<br />
-                            <a href="https://ldapauthmaster.unach.mx/pssform_resetaccount.php" target="_blank">Olvid&eacute; mi contrase&ntilde;a</a>
 
                         </div>
                     </div>
@@ -269,17 +123,17 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
         </div>
 
         <div class="piePagina" style="width: 100%">
-            <footer class="page-footer font-small pt-4" style="background-color: #585858; color: #fff">
+            <footer class="page-footer font-small pt-4" style="background-color: #585858; color: #FFFFFF">
                 <div class="container-fluid text-center text-md-left">
                     <div class="row">
                         <hr class="clearfix w-100 d-md-none pb-3">
                         <div class="col-md-6 mb-md-0 mb-3">
                             <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
-                            <p>
+                            <p class="text-uppercase mb-4 font-weight-bold"></p>
                                 <i class="fas fa-home mr-3"></i>Blvd. Belisario Dominguez, S/N, Ter&aacute;n, Tuxtla Guti&eacute;rrez, Chiapas.
                             </p>
-                            <p><i class="fas fa-envelope mr-3"></i>marcos.cancino96@unach.mx</p>
-                            <p><i class="fas fa-phone mr-3"></i>961 320 6947</p>
+                            <p class="text-uppercase mb-4 font-weight-bold"></p><i class="fas fa-envelope mr-3"></i>marcos.cancino96@unach.mx</p>
+                            <p class="text-uppercase mb-4 font-weight-bold"></p><i class="fas fa-phone mr-3"></i>961 320 6947</p>
                         </div>
                         <div class="col-md-6 mb-md-0 mb-3">
                             <div class="text-xl-center">
@@ -288,17 +142,10 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
                         </div>
                     </div>
                 </div>
-                <div class="footer-copyright text-center py-3">UNIVERSIDAD AUT&Oacute;NOMA DE CHIAPAS - TALLER 4</div>
+                <div class="footer-copyright text-center py-3">UNIVERSIDAD AUT&Oacute;NOMA DE CHIAPAS - 6N LIDTS - TALLER 4</div>
             </footer>
         </div>
     
-
-<script type="text/javascript">
-LimpiarCampos();Sys.Application.add_init(function() {
-    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"UpdatePanel1","displayAfter":500,"dynamicLayout":true}, null, null, $get("updPrMultiview"));
-});
-//]]>
-</script>
 </form>
 </body>
 </html>
